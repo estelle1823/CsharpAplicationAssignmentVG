@@ -37,14 +37,15 @@ public bool CreateProduct(ProductCreateRequest productRequest)
             if (product.ProductName == productRequest.ProductName)
                 return false; 
         }
-
         var newProduct = new Product
         {
             Id = Guid.NewGuid().ToString(),
             ProductName = productRequest.ProductName,
-            ProductPrice = productRequest.ProductPrice
+            ProductPrice = productRequest.ProductPrice,
+            Category = new ProductCategory { Name = productRequest.CategoryId },
+            Manufacturer = new ProductManufacturer { Name = productRequest.ManufacturerId }
         };
-
+       
         _productList.Add(newProduct);
         SaveToFile();
         return true;
