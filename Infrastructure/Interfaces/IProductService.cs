@@ -8,9 +8,9 @@ public interface IProductService
     IEnumerable<Product> GetAllProducts();
     Product GetProductById(Guid id);
     Product GetProductByArticleNumber(string articleNumber);
-    Product GetProductByTitle(string productTitle);
-    Product GetProductByUnitPrice(decimal unitPrice);
-    Product SaveJsonContentToFile();
+    Product GetProductByProductName(string productName);
+    Product GetProductByProductPrice(decimal productPrice);
+    bool SaveJsonContentToFile();
     bool AddProductsToList(ProductCreateRequest product);
 
     bool UpdateProduct(Guid id, ProductUpdateRequest product);
