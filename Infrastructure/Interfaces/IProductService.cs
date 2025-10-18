@@ -12,7 +12,6 @@ public interface IProductService
     Product GetProductByProductPrice(decimal productPrice);
     bool SaveJsonContentToFile();
     bool AddProductsToList(ProductCreateRequest product);
-
     bool UpdateProduct(Guid id, ProductUpdateRequest product);
     bool DeleteProduct(Guid productId);
 
