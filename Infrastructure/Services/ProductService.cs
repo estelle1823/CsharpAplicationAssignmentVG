@@ -21,7 +21,7 @@ public class ProductService : IProductService
                 _productList = loaded;
         }
     }
-        private void SaveToFile()
+        public void SaveToFile()
     {
         var json = JsonSerializer.Serialize(_productList, new JsonSerializerOptions { WriteIndented = true });
         _fileService.SaveJsonContentToFile(json);
