@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using WpfApplication.Models;
 
 namespace WpfApplication.Views;
+
 public partial class ProductViewList : UserControl
 {
     private List<Product> _productList;
@@ -12,7 +13,8 @@ public partial class ProductViewList : UserControl
     {
         InitializeComponent();
         _productList = productList;
-        ProductsViewList.ItemsSource = _productList; 
+        ProductsViewList.ItemsSource = _productList;
+    }
 
     private void BackButton_Click(object sender, RoutedEventArgs e)
     {
