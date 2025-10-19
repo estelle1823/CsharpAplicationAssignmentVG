@@ -42,8 +42,8 @@ public bool CreateProduct(ProductCreateRequest productRequest)
             Id = Guid.NewGuid().ToString(),
             ProductName = productRequest.ProductName,
             ProductPrice = productRequest.ProductPrice,
-            Category = new ProductCategory { Name = productRequest.CategoryId },
-            Manufacturer = new ProductManufacturer { Name = productRequest.ManufacturerId }
+            Category = new ProductCategory { Name = productRequest.CategoryName },
+            Manufacturer = new ProductManufacturer { Name = productRequest.ManufacturerName}
         };
        
         _productList.Add(newProduct);
