@@ -9,10 +9,12 @@ public class MainViewModel
     {
         Products.Add(new Product
         {
-            Name = name,
+            ProductName = name,
             Category = category,
             Manufacturer = manufacturer,
-            Price = price
+            ProductPrice = decimal.TryParse(price, out var p) ? p : 0
+
         });
+     
     }
 }

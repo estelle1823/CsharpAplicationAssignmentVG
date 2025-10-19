@@ -26,8 +26,13 @@
             <TextBlock Text="Manufacturer:"/>
             <TextBox x:Name="ManufacturerTextBox" Margin="0,5,0,5"/>
 
-            <Button Content="Add Product" Padding="5" Background="LightGray" Click="Add_Product_Click"/>
+            <Button Content="Add Product" Margin="0,10,0,10" Padding="5" Background="LightGray" Click="Add_Product_Click"/>
+            <Button Content="Show Products" Margin="0,10,0,10" Padding="5" Background="LightGray" Click="ShowProductListView_Click"/>
+            <Button Content="Save Products" Margin="0,2,0,2" Click="SaveProducts_Click"/>
+
         </StackPanel>
+        
+        <ContentControl x:Name="MainContent"/>
 
         <ListView x:Name="ProductsListView" Grid.Row="1" Margin="0,30,0,0"/>
     </Grid>

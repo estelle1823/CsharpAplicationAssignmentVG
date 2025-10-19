@@ -2,8 +2,8 @@
 
 public class Product
 {
-    public string Name { get; set; } = "";
-    public string Category { get; set; } = "";
-    public string Manufacturer { get; set; } = "";
-    public string Price { get; set; } = "";
+    public string ProductName { get; set; } = null!;
+    public string Category { get; set; } = null!;
+    public string Manufacturer { get; set; } = null!;
+    public decimal ProductPrice { get; set; }
 }
