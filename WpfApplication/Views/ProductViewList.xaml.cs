@@ -2,32 +2,30 @@
 using System.Windows.Controls;
 using WpfApplication.Models;
 
-namespace WpfApplication.Views
+namespace WpfApplication.Views;
+public partial class ProductViewList : UserControl
 {
-    public partial class ProductViewList : UserControl
+    private List<Product> _productList;
+    public event Action? BackRequested;
+
+    public ProductViewList(List<Product> productList)
     {
-        private List<Product> _productList;
+        InitializeComponent();
+        _productList = productList;
+        ProductsViewList.ItemsSource = _productList; // samma namn som x:Name i XAML
+    }
 
-        public ProductViewList(List<Product> productList)
-        {
-            InitializeComponent();
-            _productList = productList;
-            RefreshList();
-        }
+    private void BackButton_Click(object sender, RoutedEventArgs e)
+    {
+        BackRequested?.Invoke();
+    }
 
-        private void RefreshList()
+    private void RemoveProduct_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is Button btn && btn.DataContext is Product product)
         {
-            ProductsViewList.Items.Clear();
-            foreach (var product in _productList)
-            {
-                ProductsViewList.Items.Add($"{product.ProductName} | {product.Category} | {product.Manufacturer} | {product.ProductPrice}");
-            }
-        }
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            var mainWindow = (MainWindow)Application.Current.MainWindow;
-            mainWindow.MainContent.Content = null!;
+            _productList.Remove(product);
+            ProductsViewList.Items.Refresh();
         }
     }
 }
-

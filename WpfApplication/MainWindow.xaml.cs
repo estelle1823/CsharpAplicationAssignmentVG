@@ -18,12 +18,35 @@ namespace WpfApplication
 
         private void Add_Product_Click(object sender, RoutedEventArgs e)
         {
+            string name = ProductNameTextBox.Text;
+            decimal price = decimal.TryParse(ProductPriceTextBox.Text, out var p) ? p : 0;
+            string category = CategoryTextBox.Text;
+            string manufacturer = ManufacturerTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("Product name cannot be empty!");
+                return;
+            }
+
+            if (price <= 0)
+            {
+                MessageBox.Show("Price must be greater than 0!");
+                return;
+            }
+
+            if (_productList.Any(x => x.ProductName == name))
+            {
+                MessageBox.Show("This product already exists!");
+                return;
+            }
+
             var product = new Product
             {
-                ProductName = ProductNameTextBox.Text,
-                ProductPrice = decimal.TryParse(ProductPriceTextBox.Text, out var price) ? price : 0,
-                Category = CategoryTextBox.Text,
-                Manufacturer = ManufacturerTextBox.Text
+                ProductName = name,
+                ProductPrice = price,
+                Category = category,
+                Manufacturer = manufacturer
             };
 
             _productList.Add(product);
@@ -39,7 +62,7 @@ namespace WpfApplication
             CategoryTextBox.Text = null!;
             ManufacturerTextBox.Text = null!;
         }
-
+       
         private void ShowProductListView_Click(object sender, RoutedEventArgs e)
         {
             MainContent.Content = new ProductViewList(_productList);
