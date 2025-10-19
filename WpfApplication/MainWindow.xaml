@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="MainWindow"
+        Height="450"
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        Background="LavenderBlush">
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -25,12 +30,15 @@
             <TextBlock Text="Manufacturer:" />
             <TextBox x:Name="ManufacturerTextBox" Margin="0,5,0,5"/>
             
-            <Button x:Name="AddProduct" Content="Add Product" Padding="5" Click="AddProduct_Click" />
+            <Button x:Name="AddProduct" Content="Add Product" Padding="5" Click="AddProduct_Click" Background="LightGray" />
         </StackPanel>
 
         <ListView x:Name="Products" Grid.Row="1" Margin="0 30 0 0">
 
         </ListView>
+        <ContentControl>
+            
+        </ContentControl>
 
     </Grid>
 </Window>
