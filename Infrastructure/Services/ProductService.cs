@@ -27,30 +27,27 @@ public class ProductService : IProductService
         _fileService.SaveJsonContentToFile(json);
     
     }
-public bool CreateProduct(ProductCreateRequest productRequest)
+    public bool CreateProduct(ProductCreateRequest productRequest)
     {
-        if (string.IsNullOrWhiteSpace(productRequest.ProductName))
+        if (string.IsNullOrWhiteSpace(productRequest.ProductName) || productRequest.ProductPrice <= 0)
             return false;
 
-        foreach (var product in _productList)
-        {
-            if (product.ProductName == productRequest.ProductName)
-                return false; 
-        }
+        if (_productList.Any(p => p.ProductName == productRequest.ProductName))
+            return false;
+
         var newProduct = new Product
         {
             Id = Guid.NewGuid().ToString(),
             ProductName = productRequest.ProductName,
             ProductPrice = productRequest.ProductPrice,
-            Category = productRequest.CategoryName,      
+            Category = productRequest.CategoryName,
             Manufacturer = productRequest.ManufacturerName
         };
-       
+
         _productList.Add(newProduct);
         SaveToFile();
         return true;
     }
-    
 
     public IEnumerable<Product> GetAllProducts()
     {
@@ -120,6 +117,7 @@ public bool CreateProduct(ProductCreateRequest productRequest)
         SaveToFile();
         return true;
     }
+
 
     public bool UpdateProduct(Guid id, ProductUpdateRequest productUpdate)
     {

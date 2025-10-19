@@ -12,8 +12,7 @@ public partial class ProductViewList : UserControl
     {
         InitializeComponent();
         _productList = productList;
-        ProductsViewList.ItemsSource = _productList; // samma namn som x:Name i XAML
-    }
+        ProductsViewList.ItemsSource = _productList; 
 
     private void BackButton_Click(object sender, RoutedEventArgs e)
     {
