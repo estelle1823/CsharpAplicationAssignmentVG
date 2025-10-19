@@ -62,10 +62,12 @@ namespace WpfApplication
             CategoryTextBox.Text = null!;
             ManufacturerTextBox.Text = null!;
         }
-       
+
         private void ShowProductListView_Click(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new ProductViewList(_productList);
+            var view = new ProductViewList(_productList);
+            view.BackRequested += () => MainContent.Content = null; 
+            MainContent.Content = view;
         }
 
         private FileService _fileService = new FileService();
