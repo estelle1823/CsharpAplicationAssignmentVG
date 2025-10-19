@@ -8,7 +8,7 @@ var productService = new ProductService(fileService);
 while (true)
 {
     Console.Clear();
-    Console.WriteLine("=== Product Manager ===");
+    Console.WriteLine("=== Product Menu ===");
     Console.WriteLine("1. Add new product");
     Console.WriteLine("2. Show all products");
     Console.WriteLine("3. Save products to file");
@@ -26,12 +26,21 @@ while (true)
             Console.Write("Enter product price: ");
             string? priceInput = Console.ReadLine();
 
+            Console.Write("Enter category: ");
+            string? category = Console.ReadLine();
+
+            Console.Write("Enter manufacturer: ");
+            string? manufacturer = Console.ReadLine();
+
+
             if (!string.IsNullOrWhiteSpace(name) && decimal.TryParse(priceInput, out decimal price))
             {
                 var newProduct = new ProductCreateRequest
                 {
                     ProductName = name,
-                    ProductPrice = price
+                    ProductPrice = price,
+                    ManufacturerName = manufacturer,
+                    CategoryName= category,
                 };
 
                 productService.CreateProduct(newProduct);
