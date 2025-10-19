@@ -1,11 +1,12 @@
 ﻿<Window x:Class="WpfApplication.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApplication"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="MainWindow"
+        Height="450"
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        Background="LavenderBlush">
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -13,24 +14,21 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <TextBlock Text="Product Name:" />
+            <TextBlock Text="Product Name:"/>
             <TextBox x:Name="ProductNameTextBox" Margin="0,5,0,5"/>
 
-            <TextBlock Text="Product Price:" />
+            <TextBlock Text="Product Price:"/>
             <TextBox x:Name="ProductPriceTextBox" Margin="0,5,0,5"/>
 
-            <TextBlock Text="Category:" />
+            <TextBlock Text="Category:"/>
             <TextBox x:Name="CategoryTextBox" Margin="0,5,0,5"/>
 
-            <TextBlock Text="Manufacturer:" />
+            <TextBlock Text="Manufacturer:"/>
             <TextBox x:Name="ManufacturerTextBox" Margin="0,5,0,5"/>
-            
-            <Button x:Name="AddProduct" Content="Add Product" Padding="5" Click="AddProduct_Click" />
+
+            <Button Content="Add Product" Padding="5" Background="LightGray" Click="Add_Product_Click"/>
         </StackPanel>
 
-        <ListView x:Name="Products" Grid.Row="1" Margin="0 30 0 0">
-
-        </ListView>
-
+        <ListView x:Name="ProductsListView" Grid.Row="1" Margin="0,30,0,0"/>
     </Grid>
 </Window>
