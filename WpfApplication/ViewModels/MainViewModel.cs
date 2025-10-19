@@ -1,9 +1,18 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using WpfApplication.Models;
 
-namespace WpfApplication.ViewModels;
-
-public partial class MainViewModel : ObservableObject
+public class MainViewModel
 {
-    [ObservableProperty]
-    private ObservableObject _currentViewModel = null!;
+    public ObservableCollection<Product> Products { get; } = new ObservableCollection<Product>();
+
+    public void Add_Product_Click(string name, string category, string manufacturer, string price)
+    {
+        Products.Add(new Product
+        {
+            Name = name,
+            Category = category,
+            Manufacturer = manufacturer,
+            Price = price
+        });
+    }
 }

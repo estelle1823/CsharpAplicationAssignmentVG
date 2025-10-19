@@ -6,7 +6,7 @@ public class Product
 public string ProductName { get; set; } = null!;
 public decimal ProductPrice { get; set; }
 public string ArticleNumber { get; set; } = null!;
-public ProductCategory Category { get; set; } = null!;
-public ProductManufacturer Manufacturer { get; set; } = null!;
+public string Category { get; set; } = null!;
+public string Manufacturer { get; set; } = null!;
    
 }

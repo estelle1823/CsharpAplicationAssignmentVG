@@ -1,10 +1,4 @@
-using System.Reflection;
 using System.Windows;
-
-[assembly: AssemblyTitle("WpfApplication")]
-[assembly: AssemblyDescription("Application that manages information about products. ")]
-[assembly: AssemblyCompany("Estelle AB")]
-
 
 [assembly: ThemeInfo(
 ResourceDictionaryLocation.None,            //where theme specific resource dictionaries are located
